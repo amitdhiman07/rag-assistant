@@ -33,7 +33,7 @@ def store_embeddings(chunks):
             vectors_config=VectorParams(size=768, distance=Distance.COSINE),
         )
     vector_store = QdrantVectorStore(
-        client=client, collection_name=settings.COLLECTION_NAME, embeddings=embeddings
+        client=client, collection_name=settings.COLLECTION_NAME, embedding=embeddings
     )
     vector_store.add_documents(chunks)
     return vector_store

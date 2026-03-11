@@ -19,7 +19,7 @@ def get_retriever():
     retriever = QdrantVectorStore(
         client=client,
         collection_name=settings.COLLECTION_NAME,
-        embeddings=embedding_model,
+        embedding=embedding_model,
     ).as_retriever()
 
     return retriever
@@ -27,14 +27,13 @@ def get_retriever():
 
 def ask_question(question: str):
     template = PromptTemplate.from_template(
-        input_variables=["context", "question"],
-        template="""
+        """
         Answer the question based on the following context:
         {context}
         Question: {question}
         Answer:
         
-    """,
+    """
     )
 
     llm = OllamaLLM(model=settings.OLLAMA_LLM_MODEL, base_url=settings.OLLAMA_BASE_URL)

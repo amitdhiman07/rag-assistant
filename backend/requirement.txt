@@ -1,0 +1,10 @@
+fastapi
+pydantic-settings
+langchain
+langchain-community
+langchain-ollama
+langchain-qdrant
+qdrant-client
+pypdf
+uvicorn
+python-multipart
